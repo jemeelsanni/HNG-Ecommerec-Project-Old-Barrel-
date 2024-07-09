@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import barrel from "../assets/big-barrel.png";
 import barrel2 from "../assets/old-barrel2.png";
 
@@ -24,9 +25,11 @@ const Footer = () => {
                   type="text"
                   placeholder="EMAIL"
                 />
-                <button className=" h-[62px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
-                  SUBMIT
-                </button>
+                <Link to="/">
+                  <button className=" h-[62px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
+                    SUBMIT
+                  </button>
+                </Link>
               </form>
             </div>
             <div>
@@ -61,9 +64,11 @@ const Footer = () => {
                   type="text"
                   placeholder="EMAIL"
                 />
-                <button className=" h-[50px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button-m">
-                  SUBMIT
-                </button>
+                <Link to="/">
+                  <button className=" h-[50px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button-m">
+                    SUBMIT
+                  </button>
+                </Link>
               </form>
             </div>
             <div className="flex justify-center">

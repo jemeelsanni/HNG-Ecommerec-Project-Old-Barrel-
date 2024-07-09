@@ -105,10 +105,11 @@ const Checkoutform = () => {
               />
             </div>
           </div>
-
-          <button className=" h-[62px] w-full rounded px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
-            complete order
-          </button>
+          <Link to="/">
+            <button className=" h-[62px] w-full rounded px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
+              complete order
+            </button>
+          </Link>
         </form>
       </div>
       {/* mobile */}
@@ -244,10 +245,11 @@ const Checkoutform = () => {
               </div>
             </div>
           </div>
-
-          <button className=" h-[62px] w-full rounded text-center py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button-m">
-            complete order
-          </button>
+          <Link to="/">
+            <button className=" h-[62px] w-full rounded text-center py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button-m">
+              complete order
+            </button>
+          </Link>
         </form>
       </div>
     </div>

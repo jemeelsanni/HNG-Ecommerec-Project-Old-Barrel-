@@ -1,11 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const YoutubeEmbed = ({ embedId }) => (
   <div>
     <div className="hidden laptop:block">
       <div className="my-[25px] mx-[70px]">
-        <p className="bestseller mt-[45px] mb-[10px]">Best Sellers</p>
+        <p className="bestseller mt-[45px] mb-[10px] ">
+          <span className=" text-[#DCA47C]">Manuarii is </span>coming soon to{" "}
+          <span className="text-[#698474]">Old barrel</span>
+        </p>
         <div className="pb-[56.25%] relative h-0">
           <iframe
             width="1372px"
@@ -32,9 +36,11 @@ const YoutubeEmbed = ({ embedId }) => (
               type="text"
               placeholder="EMAIL"
             />
-            <button className=" h-[62px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
-              SUBMIT
-            </button>
+            <Link to="/">
+              <button className=" h-[62px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
+                SUBMIT
+              </button>
+            </Link>
           </form>
         </div>
       </div>
@@ -42,7 +48,10 @@ const YoutubeEmbed = ({ embedId }) => (
     {/* mobile */}
     <div className=" block laptop:hidden ">
       <div className="my-[17px] mx-[21px]">
-        <p className="bestseller mt-[45px] mb-[10px]">Best Sellers</p>
+        <p className="bestseller mt-[45px] mb-[10px]">
+          <span className=" text-[#DCA47C]">Manuarii is </span>coming soon to{" "}
+          <span className="text-[#698474]">Old barrel</span>
+        </p>
         <div className="pb-[56.25%] relative h-0">
           <iframe
             width="1372px"
@@ -69,9 +78,11 @@ const YoutubeEmbed = ({ embedId }) => (
               type="text"
               placeholder="EMAIL"
             />
-            <button className=" h-[50px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
-              SUBMIT
-            </button>
+            <Link to="/">
+              <button className=" h-[50px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
+                SUBMIT
+              </button>
+            </Link>
           </form>
         </div>
       </div>
