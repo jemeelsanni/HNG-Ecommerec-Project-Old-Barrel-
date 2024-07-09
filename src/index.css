@@ -1,0 +1,442 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mulish-font {
+  font-family: "Mulish", sans-serif;
+}
+
+.navbar {
+  background-color: #fff6e9;
+  padding: 16px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 9px 0px rgba(0, 0, 0, 0.15);
+}
+
+.nav-flex {
+  display: flex;
+  gap: 50px;
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.9px; /* 105% */
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.user-flex {
+  display: flex;
+  gap: 20px;
+}
+
+.text-button {
+  color: #fcf8f3;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.text-button-m {
+  color: #fcf8f3;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.sub-text {
+  color: #000;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.sub-text-m {
+  color: #3b383a;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.input-text {
+  color: rgba(59, 56, 58, 0.4);
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.input-tex {
+  color: rgba(59, 56, 58, 0.4);
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: capitalize;
+}
+
+.input-tex-m {
+  color: rgba(59, 56, 58, 0.4);
+  font-family: Mulish;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: capitalize;
+}
+
+.form-head {
+  color: #3b383a;
+  text-align: left;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 19.5px */
+}
+
+.form-p {
+  color: rgba(59, 56, 58, 0.8);
+  font-family: Mulish;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 15.6px */
+}
+
+.foot {
+  color: #000;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.products-title {
+  color: #000;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.discount-price {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.price {
+  color: rgba(59, 56, 58, 0.6);
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-decoration-line: strikethrough;
+  text-transform: uppercase;
+}
+
+.cart {
+  color: #698474;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+}
+
+.bestseller {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 18.9px; /* 171.818% */
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.product-title {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 135%; /* 37.8px */
+}
+
+.product-title-m {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.product-description {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 135%; /* 20.25px */
+}
+
+.product-description-m {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 135%; /* 20.25px */
+}
+
+.whistle {
+  color: #000;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.whistle-m {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.whistle-price {
+  color: #000;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.whistle-price {
+  color: #3b383a;
+  text-align: right;
+  font-family: Mulish;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.count {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.th {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 18.9px; /* 171.818% */
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.estimate {
+  color: #3b383a;
+  text-align: right;
+  font-family: Mulish;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.estimate-m {
+  color: #3b383a;
+  text-align: right;
+  font-family: Mulish;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.estimate-price {
+  color: #3b383a;
+  text-align: right;
+  font-family: Mulish;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.estimate-price-m {
+  color: #3b383a;
+  text-align: right;
+  font-family: Mulish;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.tax {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.tax-m {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 8px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.cart-head {
+  color: #000;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cart-head-m {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.cart-amount {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.cart-amount-m {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
+
+.cart-total {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.cart-total-m {
+  color: #3b383a;
+  font-family: Mulish;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.63px;
+  text-transform: uppercase;
+}
