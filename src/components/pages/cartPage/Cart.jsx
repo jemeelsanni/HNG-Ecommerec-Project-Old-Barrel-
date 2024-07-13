@@ -1,109 +1,176 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import line from "../../assets/Line.png";
-import Cartproduct from "./Cartproduct";
-import Counter from "./Counter";
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
+import { useCart } from "../../../Cartcontext";
+import line from "../../assets/Line.png";
+import exit from "../../assets/delete.png";
 
 const Cart = () => {
+  const { cart, removeFromCart, incrementQuantity, decrementQuantity } =
+    useCart();
+
+  const formatPrice = (currentPrice) => {
+    if (Array.isArray(currentPrice) && currentPrice.length > 0) {
+      const priceData = currentPrice[0];
+      const currency = Object.keys(priceData)[0];
+      const price = priceData[currency][0];
+      return `${currency} ${parseFloat(price).toFixed(2)}`;
+    } else if (typeof currentPrice === "number") {
+      return `$${parseFloat(currentPrice).toFixed(2)}`;
+    }
+    return "Price not available";
+  };
+
+  const getTotalPrice = () => {
+    return cart
+      .reduce(
+        (acc, product) => acc + product.current_price * product.quantity,
+        0
+      )
+      .toFixed(2);
+  };
+
   return (
     <div className="mulish-font bg-[#FCF8F3]">
       <Header />
       <div className="hidden laptop:block">
         <div className="mx-[72px] pt-[54px] pb-[100px]">
-          <div>
-            <h5>Your cart</h5>
+          <h5>Your cart</h5>
+          <div className="th flex items-center text-center mx-[25px] my-[15px] justify-between">
+            <p>Product</p>
+            <p>Quantity</p>
+            <p>Total</p>
           </div>
-          <div>
-            <div className=" th flex items-center text-center mx-[25px] my-[15px] justify-between">
-              <p>Product</p>
-              <>Quantity</>
-              <p>Total</p>
-            </div>
-            <div>
-              <img src={line} className=" w-full" alt="" />
-            </div>
-            <div className="flex items-center justify-between">
-              <Cartproduct />
-              <Counter />
+          <div className="timbu-line">
+            <img src={line} alt="line" />
+          </div>
+          {cart.map((product) => (
+            <div
+              key={product.id}
+              className="flex justify-between items-center my-[15px]"
+            >
+              <div className="flex items-center gap-[15px]">
+                {product.photos && product.photos[0] && (
+                  <img
+                    className="w-[60px] h-[60px]"
+                    src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                    alt={product.name}
+                  />
+                )}
+                <p>{product.name}</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="flex flex-row bg-[#DCA47C] items-center w-[172px] h-[47px] space-x-4 rounded-sm">
+                  <button
+                    className="bg-[#DCA47C] w-1/3 text-gray-700 px-3 py-1 rounded"
+                    onClick={() => decrementQuantity(product.id)}
+                  >
+                    -
+                  </button>
+                  <span className="count w-1/3 text-center bg-[#DCA47C] text-xl">
+                    {product.quantity}
+                  </span>
+                  <button
+                    className="bg-[#DCA47C] w-1/3 text-gray-700 px-3 py-1 rounded"
+                    onClick={() => incrementQuantity(product.id)}
+                  >
+                    +
+                  </button>
+                </div>
+                <button onClick={() => removeFromCart(product.id)}>
+                  <img src={exit} alt="Remove" />
+                </button>
+              </div>
               <div>
-                <p>$256.99</p>
+                <span className="count w-1/3 text-center bg-[#DCA47C] text-xl">
+                  {formatPrice(product.current_price * product.quantity)}
+                </span>
               </div>
             </div>
-
+          ))}
+          <div className="flex justify-between items-center mx-[40px]">
+            <Link to="/checkout">
+              <button className="h-[60px] w-[300px] py-[15px] bg-[#DCA47C] shadow-custom text-[#FCF8F3] text-button">
+                Checkout
+              </button>
+            </Link>
             <div>
-              <img src={line} className=" w-full" alt="" />
-            </div>
-          </div>
-          <div className="flex flex-col mt-[32px]">
-            <div className="flex gap-4 justify-end">
-              <p className="estimate">estimated total</p>
-              <p className=" estimate-price">$256.99</p>
-            </div>
-            <div className="flex justify-end mt-[32px] mb-[22px]">
-              <img src={line} className=" w-[286px]" alt="" />
-            </div>
-            <div className="flex justify-end">
-              <p className="tax">
-                Taxes, discounts and shipping calculated at checkout
-              </p>
-            </div>
-            <div className="flex justify-end mt-[4px]">
-              <Link to="/checkout">
-                <button className=" h-[62px] w-[400px] px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
-                  checkout
-                </button>
-              </Link>
+              <p className="text-[#1A1A1A]">Total: ${getTotalPrice()}</p>
             </div>
           </div>
         </div>
       </div>
-      {/* mobile */}
-      <div className=" block laptop:hidden ">
-        <div className="mx-[21px] pt-[24px] pb-[50px]">
-          <div>
-            <h5 className=" text-xl font-medium">Your cart</h5>
+      {/* Mobile */}
+      <div className="block laptop:hidden">
+        <div className="mx-[30px] pt-[30px] pb-[35px]">
+          <h5>Your cart</h5>
+          <div className="th-m flex items-center text-center mx-[10px] my-[15px] justify-between">
+            <p>Product</p>
+            <p>Total</p>
           </div>
-          <div>
-            <div className=" th flex items-center text-center my-[15px] justify-between">
-              <p>Product</p>
-
-              <p>Total</p>
-            </div>
-            <div>
-              <img src={line} className=" w-full" alt="" />
-            </div>
-            <div className="flex justify-between">
-              <Cartproduct />
-
-              <div className=" pt-2">
-                <p className="whistle-price-m">$256.99</p>
+          <div className="timbu-line">
+            <img src={line} alt="line" />
+          </div>
+          <div className="flex">
+            {cart.map((product) => (
+              <div
+                key={product.id}
+                className="flex justify-between items-center my-[15px]"
+              >
+                <div className="flex flex-row gap-2">
+                  {product.photos && product.photos[0] && (
+                    <img
+                      className="w-[100px] h-full"
+                      src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                      alt={product.name}
+                    />
+                  )}
+                  <div className="flex flex-col">
+                    <div className="flex items-center gap-[15px]">
+                      <p>{product.name}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="flex flex-row bg-[#DCA47C] items-center w-[150px] h-[47px] space-x-4 rounded-sm">
+                        <button
+                          className="bg-[rgb(220,164,124)] w-1/3 text-gray-700 px-3 py-1 rounded"
+                          onClick={() => decrementQuantity(product.id)}
+                        >
+                          -
+                        </button>
+                        <span className="count w-1/3 text-center bg-[#DCA47C] text-xl">
+                          {product.quantity}
+                        </span>
+                        <button
+                          className="bg-[#DCA47C] w-1/3 text-gray-700 px-3 py-1 rounded"
+                          onClick={() => incrementQuantity(product.id)}
+                        >
+                          +
+                        </button>
+                      </div>
+                      <button onClick={() => removeFromCart(product.id)}>
+                        <img src={exit} alt="Remove" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <span className="count w-1/3 text-center text-xl ml-3">
+                    {formatPrice(product.current_price * product.quantity)}
+                  </span>
+                </div>
               </div>
-            </div>
-
-            <div>
-              <img src={line} className=" w-full" alt="" />
-            </div>
+            ))}
           </div>
-          <div className="flex flex-col mt-[16px]">
-            <div className="flex gap-4 justify-center">
-              <p className="estimate-m">estimated total</p>
-              <p className=" estimate-price-m">$256.99</p>
-            </div>
-            <div className="flex justify-center mt-[16px] mb-[22px]">
-              <img src={line} className="" alt="" />
-            </div>
-            <div className="flex  mb-[10px]">
-              <p className="tax-m">
-                Taxes, discounts and shipping calculated at checkout
-              </p>
-            </div>
-            <Link to="/checkout" className="flex justify-center mt-[4px]">
-              <button className=" h-[50px] w-full px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button-m">
-                checkout
+          <div className="flex justify-between items-center mx-[10px]">
+            <Link to="/checkout">
+              <button className="h-[40px] w-[180px] py-[10px] bg-[#DCA47C] shadow-custom text-[#FCF8F3] text-button-m">
+                Checkout
               </button>
             </Link>
+            <div>
+              <p className="text-[#1A1A1A]">Total: ${getTotalPrice()}</p>
+            </div>
           </div>
         </div>
       </div>

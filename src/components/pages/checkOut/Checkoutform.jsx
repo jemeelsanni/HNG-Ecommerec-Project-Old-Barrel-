@@ -1,8 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import whiskey from "../../assets/check-whiskey.png";
+import { useCart } from "../../../Cartcontext";
 
 const Checkoutform = () => {
+  const { cart } = useCart();
+
+  const calculateTotal = () => {
+    const subtotal = cart.reduce(
+      (sum, product) => sum + product.price * product.quantity,
+      0
+    );
+    const shipping = cart.length > 0 ? 12.0 : 0;
+    return (subtotal + shipping).toFixed(2);
+  };
+
   return (
     <div>
       <div className="hidden laptop:block">
@@ -108,12 +119,11 @@ const Checkoutform = () => {
           </div>
           <Link to="/">
             <button className=" h-[62px] w-full rounded px-[120px] py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button">
-              complete order
+              Complete order
             </button>
           </Link>
         </form>
       </div>
-      {/* mobile */}
       <div className=" block laptop:hidden ">
         <form className="w-full" action="">
           <div className="mb-[36px]">
@@ -215,40 +225,42 @@ const Checkoutform = () => {
               />
             </div>
           </div>
-
           <div className="mb-[24px]">
             <h2 className="form-head mb-[12px]">Order</h2>
-            <div className="flex gap-[16px]">
-              <div>
-                <img className="w-[138px] h-[138px]" src={whiskey} alt="" />
+            {cart.map((product) => (
+              <div key={product.id} className="flex gap-[16px] mb-[16px]">
+                <div>
+                  <img
+                    className="w-[138px] h-[138px]"
+                    src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
+                    alt={product.name}
+                  />
+                </div>
+                <div className="w-[384px]">
+                  <h3 className="cart-head-m mb-[15px]">{product.name}</h3>
+                  <div className="cart-amount-m flex justify-between mb-[10px]">
+                    <p>Amount</p>
+                    <p>{product.quantity}</p>
+                  </div>
+                  <div className="cart-amount-m flex justify-between mb-[10px]">
+                    <p>Sub total</p>
+                    <p>${(product.price * product.quantity).toFixed(2)}</p>
+                  </div>
+                  <div className="cart-amount-m flex justify-between mb-[10px]">
+                    <p>Shipping</p>
+                    <p>$12.00</p>
+                  </div>
+                  <div className="cart-total-m flex justify-between">
+                    <p>Total</p>
+                    <p>${calculateTotal()}</p>
+                  </div>
+                </div>
               </div>
-              <div className="w-[384px]">
-                <h3 className="cart-head-m mb-[15px]">
-                  WHISTLEPIG 10 YEAR "WHISKEY REVOLUTION" SINGLE BARREL RYE
-                  WHISKEY
-                </h3>
-                <div className="cart-amount-m flex justify-between mb-[10px]">
-                  <p>Amount</p>
-                  <p>1</p>
-                </div>
-                <div className="cart-amount-m flex justify-between mb-[10px]">
-                  <p>sub total</p>
-                  <p>$256.99</p>
-                </div>
-                <div className="cart-amount-m flex justify-between mb-[10px]">
-                  <p>shipping</p>
-                  <p>$12.00</p>
-                </div>
-                <div className="cart-total-m flex justify-between">
-                  <p>total</p>
-                  <p>$268.99</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <Link to="/">
-            <button className=" h-[62px] w-full rounded text-center py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button-m">
-              complete order
+            <button className="h-[62px] w-full rounded text-center py-[18px] bg-[#698474] shadow-custom text-[#FCF8F3] text-button-m">
+              Complete order
             </button>
           </Link>
         </form>
