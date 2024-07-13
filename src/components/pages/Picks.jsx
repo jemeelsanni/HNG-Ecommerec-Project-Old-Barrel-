@@ -72,9 +72,9 @@ const Picks = () => {
                         {formatPrice(product.current_price)}
                       </p>
                     </div>
-                    <button onClick={() => addToCart(product)}>
+                    {/* <button onClick={() => addToCart(product)}>
                       <p className="cart">add to cart</p>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -110,9 +110,9 @@ const Picks = () => {
                         {formatPrice(product.current_price)}
                       </p>
                     </div>
-                    <button onClick={() => addToCart(product)}>
+                    {/* <button onClick={() => addToCart(product)}>
                       <p className="cart">add to cart</p>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
