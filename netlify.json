@@ -9,6 +9,16 @@
         "to": "/index.html",
         "status": 200
       }
+    ],
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "https://api.timbu.cloud/$1"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
     ]
   }
   
